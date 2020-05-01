@@ -1,0 +1,127 @@
+/* base styles */
+html,body{
+    height: 100%;
+    width: 100%;
+    overflow:hidden;
+    margin: 0;
+}
+
+.sky, .grass, .road{
+    position: relative;
+}
+
+.sky{
+    height: 40%;
+    background-color: skyblue;
+}
+
+.grass{
+    height: 30%;
+    background-color: seagreen;
+}
+
+.road{
+    height: 30%;
+    background-color: dimgray;
+    box-sizing: border-box;
+    border-top: 10px solid grey;
+    border-bottom: 10px solid grey;
+    width: 100%;
+}
+
+.line{
+    box-sizing: border-box;
+    border: 5px dashed #fff;
+    height: 0;
+    width: 100%;
+    position: absolute;
+    top: 45%;
+}
+/* elements to animate */
+.mario{
+    position: absolute;
+    top: -40px;
+    left: 0;
+    animation-name: drive;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    /* animation-fill-mode, by default is none;
+    backwards move mario to from-point before animation;
+    forwards let mario to stay in the to-point after animation;
+    both can do all of it; */
+
+    animation-delay: 0s;
+    /* animation-delay, open web after 2s then the animation kicks in; */
+
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    /* animation-timing-function, 
+    ease means start slowly, then speed up and end slowly;
+    ease-in, start slowly then speed up and keep it to the end;
+    ease-out, start at normal speed then end at slow speed;
+    can also use cubic-bezier to define speed rate;
+     */
+}
+
+.mario{
+    position: absolute;
+    top: -40px;
+    left: 0;
+    animation: drive 3s both infinite linear, 
+               jump 0.3s 1.2s ease infinite;
+    /* chain two animations, each jump takes 0.3s, refresh page after 1.2s jump kicks
+    in, but drive start right away  */
+}
+
+.luigi{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    animation-name: drive;
+    animation-duration: 4s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    /* animation-direction, alternate means from start to end, and from end to 
+    start; alternate-reverse means from end to start, and from start to end */
+    animation-timing-function: linear;
+}
+
+.cloud{
+    position: absolute;
+}
+
+.cloud:nth-child(1){
+    width: 200px;
+    top: 120px;
+    opacity: 0.5;
+    animation: wind 70s linear infinite reverse;
+    /* animation shorthand: what is the keyframes, duration, count, 
+    direction, fill, timing and delay */
+}
+
+.cloud:nth-child(2){
+    width: 300px;
+    top: 0;
+    animation: wind 40s linear infinite normal;
+}
+
+/* keyframes */
+@keyframes drive{
+    from{transform: translateX(-200px)}
+    to{transform: translateX(1350px)}
+}
+
+@keyframes wind{
+    from{left:-300px}
+    to{left:100%}
+}
+
+@keyframes jump{
+    0%{top: -40px}
+    50%{top: -100px}
+    100%{top: -40px}
+}
+
+
+
