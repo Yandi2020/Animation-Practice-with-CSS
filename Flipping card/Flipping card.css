@@ -1,0 +1,75 @@
+body{
+    background: #333;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+h1{
+    color: #fff;
+    font-weight: normal;
+    text-align: center;
+    font-size: 40px;
+}
+
+/* strip out the default styling */
+.panels{
+    list-style-type: none;
+    padding: 0;
+}
+
+/* old float method to list 4 li in one line */
+.panels li{
+    position: relative;
+    width: 25%;
+    margin: 0;
+    display: block;
+    box-sizing: border-box;
+    float: left;
+}
+
+.panels li div{
+    width: 100%;
+    padding: 50% 0;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 0;
+    cursor: pointer;
+}
+
+/* Animation Styling */
+
+/* rotate and hide the back card */
+.panels div.back{
+    transform: rotateX(90deg);
+}
+
+/* style front card position absolute to remove the space from back card */
+.panels div.front{
+    position: absolute;
+}
+
+/* rotateX: from top to bottom; rotateY: from left to right;
+   rotate front card 0.2s firstly, back card delay 0.2s as well, and then
+   rotate back card in 0.2s  */
+.panels li:hover div.front{
+    animation: turn 0.2s ease-in forwards;
+}
+
+/* back card start from rotateX(90deg), so the animation is reverse 
+   compared with front card */
+.panels li:hover div.back{
+    animation: turn 0.2s 0.2s ease-out forwards reverse;
+}
+
+@keyframes turn{
+    0%{ transform: rotateX(0deg);}
+    100%{ transform: rotateX(90deg);}
+}
