@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Cart</title>
+    <link rel="stylesheet" href="Food-cart.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+    crossorigin="anonymous"></script>
+</head>
+<body class="basket">
+    <header>
+        <h1> The Best Burger Ever</h1>
+        <div class="basket-icon">
+            <img src="images/basket.png" alt="image of a basket">
+        </div>
+    </header>
+    <ul class="products">
+        <li>
+            <img src="images/burger1.jpeg" alt="image of burger1">
+            <h2>Burger One</h2>
+            <button>Add to Basket</button>
+        </li>
+        <li>
+            <img src="images/burger2.jpeg" alt="image of burger2">
+            <h2>Burger Two</h2>
+            <button>Add to Basket</button>
+        </li>
+        <li>
+            <img src="images/burger3.jpeg" alt="image of burger3">
+            <h2>Burger Three</h2>
+            <button>Add to Basket</button>
+        </li>
+        <li>
+            <img src="images/burger1.jpeg" alt="image of burger1">
+            <h2>Burger One</h2>
+            <button>Add to Basket</button>
+        </li>
+        <li>
+            <img src="images/burger2.jpeg" alt="image of burger2">
+            <h2>Burger Two</h2>
+            <button>Add to Basket</button>
+        </li>
+        <li>
+            <img src="images/burger3.jpeg" alt="image of burger3">
+            <h2>Burger Three</h2>
+            <button>Add to Basket</button>
+        </li>
+    </ul>
+
+    <!-- Adding jQuery to clone the image and add/remove class of zoom -->
+    <script>
+        $("button") .on("click",function(){
+            $(this) .closest("li")
+            .find("img")
+            .clone()
+            .addClass("zoom")
+            .appendTo("body");
+         setTimeout(function(){
+            $(".zoom").remove();
+         }, 1000);
+        });
+    </script>
+</body>
+</html>
