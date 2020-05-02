@@ -40,3 +40,90 @@ img{
     transform: rotate(360deg);
 }
 
+/* Pop-up Animation, make use of box-sizing, chain input and button together,
+and style both properly */
+h1{
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+p{
+    margin-bottom: 40px;
+}
+
+#Pop-up{
+    position: relative;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#Pop-up .container{
+    background-color: #f0e4d4;
+    padding: 30px;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#Pop-up input{
+    padding: 10px;
+    border: 0;
+    border-radius: 10px 0 0 10px;
+    /* left top,right top,right bottom and left bottom */
+    border: 1px solid #333;
+    font-size: 18px;
+}
+
+button{
+    padding: 10px;
+    border: 0;
+    color: #fff;
+    background: #333;
+    margin-left: -5px;
+    border-radius: 0 10px 10px 0;
+    border: 1px solid #333;
+    font-size: 18px;
+}
+
+.cross{
+    position: absolute;
+    top: 10px;
+    left: 470px;
+    background: #555;
+    color: #ddd;
+    font-weight: bold;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    border-radius: 11px;
+}
+/* Animation */
+
+#Pop-up{
+    top: -960px ;
+    transform-origin: 470px 10px;
+    /* by default, transform (eg.rotateZ) from the middle point of X */
+    animation: drop 1.2s ease forwards,
+               swing 3s 2s ease forwards;
+    /* chain two animations together,swing waits 2s firstly then animate in 
+    3s */
+}
+
+@keyframes drop{
+    0%{opacity: 0;}
+    70%{ transform: translateY(530px)}
+    100%{ transform: translateY(480px);opacity: 1;}
+    /* opacity 0 start and opacity 1 in the end, let it ease in,
+    better visual effect */
+}
+
+@keyframes swing{
+    0%{transform: translateY(480px) rotateZ(0deg);}
+    40%{transform: translateY(480px) rotateZ(-90deg);}
+    70%{transform: translateY(480px) rotateZ(-70deg);}
+    100%{transform: translateY(480px) rotateZ(-75deg);}
+    /* have to keep the second animation starts from the end position of the 
+    first animation, which is translateY(480px) */
+}
