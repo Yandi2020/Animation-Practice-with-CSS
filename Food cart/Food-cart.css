@@ -1,0 +1,76 @@
+/* Basket base style */
+header{
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+
+/* old float method to avoid collapse after floating, insert empty content */
+header:after{
+    display:block;
+    content: "";
+    clear: both;
+}
+
+.basket ul{
+    padding: 0;
+    margin-top: 40px;
+}
+
+/* each li takes 30% width, but the img inside each li takes 100% width */
+img{
+    max-width: 100%;
+}
+
+.products li:nth-child(1) img{
+    height: 285px;
+}
+
+.products li:nth-child(4) img{
+    height: 285px;
+}
+
+/* old float method to list 3 li in one line */
+.basket li{
+    display: inline-block;
+    list-style-type: none;
+    width: 30%;
+    margin: 30px 1.5%;
+    text-align: center;
+}
+
+.basket button{
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* old float method to line header and basket icon horizontally */
+.basket header div{
+    float: right;
+    position: relative;
+    /* z-index: 1; */
+}
+
+.basket header h1{
+    float: left;
+}
+
+/* Basket Animation */
+.zoom{
+    position: absolute;
+    top: 40px;
+    right: 50%;
+    /* give the img 80px width to make it looks like a thumbnail */
+    width: 80px;
+    /* the img starts to fade in, and this is starting point to animate */
+    opacity: 0;
+    animation: zoom 1s ease forwards;
+}
+
+@keyframes zoom{
+    0%{opacity: 0}
+    50%{opacity: 1}
+    100%{opacity: 0; right: 40px;}
+    /* animation ends at the right edge of the page, and it has a fade in
+    and fade out visual effect by using opacity */
+}
